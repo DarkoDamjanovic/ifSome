@@ -35,6 +35,8 @@ Additionally, just for the sake of completness also an `ifNone` method is includ
 
     let someText: String? = nil
     someText.ifNone { print("someText is really nil") }
+    
+The trailing `ifNone` closure is only called if the value is `nil`.
 
 ## Installation
 
