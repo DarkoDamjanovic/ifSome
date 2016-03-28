@@ -29,6 +29,13 @@ ifSome is similar but different to `map` on the Swift `Optional` enum:
 - `map` returns a result. `ifSome` does not return anything, it just calls the closure if the Optional is not `nil`.
 - `map` is currently declared as `@warn_unused_result`. If the result of `map` is not used the warning `"Result of call to map is unused"` is issued by the compiler so `map` cannot be used as a clean replacement of `ifSome`.
 
+## ifNone
+
+Additionally, just for the sake of completness also an `ifNone` method is included.
+
+    let someText: String? = nil
+    someText.ifNone { print("someText is really nil") }
+
 ## Installation
 
 `ifSome` is an extension of the Swift `Optional` enum. Just add the file "Optional+ifSome.swift" to your project.

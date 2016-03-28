@@ -5,4 +5,10 @@ public extension Optional {
             try f(unwrapped)
         }
     }
+    
+    public func ifNone(@noescape f: Void throws -> Void) rethrows {
+        if case .None = self {
+            try f()
+        }
+    }
 }
