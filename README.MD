@@ -2,24 +2,24 @@
 
 ifSome is an attempt to create a functional shorthand syntax of optional binding (`if let`) in Swift. Use it like this:
 
-`let text: String? = "Some text"`
-`text.ifSome { print($0) }`
+    let text: String? = "Some text"
+    text.ifSome { print($0) }
 
 If the String is `nil` the closure will not be called.
 
 Most of the time `guard` or `if let` is used in Swift to check for `nil`, which can be an overhead sometimes. Consider this simple add method which add's to optional Int's and returns nil if one of them is nil:
 
-`func add(a: Int?, b: Int?) -> Int?`
+    func add(a: Int?, b: Int?) -> Int?
 
 Usually used like this:
 
-`if let result = add(nil, b: 5) {`
-	`print(result)`
-`}`
+    if let result = add(nil, b: 5) {
+	    print(result)
+    }
 
 With ifSome:
 
-`add(nil, b: 5).ifSome { print($0) }`
+    add(nil, b: 5).ifSome { print($0) }
 
 ifSome is similar but different to `map` on the Swift `Optional` enum:
 
