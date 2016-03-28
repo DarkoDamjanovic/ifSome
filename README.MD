@@ -23,8 +23,8 @@ With ifSome:
 
 ifSome is similar but different to `map` on the Swift `Optional` enum:
 
-- map returns a result. The result can be (and usually is) a different type then the source type. This involves usually a type conversion which can cost performance. ifSome does not return anything, it just calls the closure if the Optional is not `nil`.
-- map is currently declared as `@warn_unused_result`. If the result of map is not used the warning "Result of call to map is unused" is issued by the compiler so map cannot be used as a clean replacement of ifSome.
+- map returns a result. ifSome does not return anything, it just calls the closure if the Optional is not `nil`.
+- map is currently declared as `@warn_unused_result`. If the result of map is not used the warning `"Result of call to map is unused"` is issued by the compiler so map cannot be used as a clean replacement of ifSome.
 
 ## Installation
 
