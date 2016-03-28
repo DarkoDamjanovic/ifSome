@@ -22,7 +22,7 @@ With Swift's `if let` syntax:
     
 With ifSome:
 
-    add(nil, b: 5).ifSome { print($0) }
+    add(nil, b: 5).ifSome{ print($0) }
     
 ifSome is similar but different to `map` on the Swift `Optional` enum:
 
