@@ -56,14 +56,14 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 `ifSome` is benchmarked against `if let` and `if var`. Most of the time it is slightly faster then both. (see Benchmark.swift)
 
 Test-Run 1:
-**Duration ifSome: 0.121964991092682** 
-Duration if let: 0.131994009017944 
-Duration if var: 0.140098989009857 
+**Duration ifSome: 0.121964991092682**
+Duration if let: 0.131994009017944
+Duration if var: 0.140098989009857
 
 Test-Run 2:
 **Duration ifSome: 0.119361042976379**
-Duration if let: 0.129860997200012 
-Duration if var: 0.119897961616516 
+Duration if let: 0.129860997200012
+Duration if var: 0.119897961616516
 
 Test-Run 3:
 **Duration ifSome: 0.120971977710724**
