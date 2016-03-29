@@ -41,6 +41,7 @@ ifSome is similar but different to `map` on the Swift `Optional` enum:
 
 - `map` returns a result. `ifSome` does not return anything, it just calls the closure if the Optional is not `nil`.
 - `map` is currently declared as `@warn_unused_result`. If the result of `map` is not used the warning `"Result of call to map is unused"` is issued by the compiler so `map` cannot be used as a clean replacement of `ifSome`.
+- `map` is not intended as a `nil` check. As the name suggests it should be used for mapping one type to another type.
 
 ## ifNone
 
@@ -56,29 +57,49 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 `ifSome` is benchmarked against `if let` and `if var`. Most of the time it is slightly faster then both. (see Benchmark.swift)
 
 Test-Run 1:
+
 **Duration ifSome: 0.121964991092682**
+
 Duration if let: 0.131994009017944
+
 Duration if var: 0.140098989009857
 
+
 Test-Run 2:
+
 **Duration ifSome: 0.119361042976379**
+
 Duration if let: 0.129860997200012
+
 Duration if var: 0.119897961616516
 
+
 Test-Run 3:
+
 **Duration ifSome: 0.120971977710724**
+
 Duration if let: 0.127260982990265
+
 Duration if var: 0.124355018138885
 
+
 Test-Run 4:
+
 Duration ifSome: 0.125229001045227
+
 Duration if let: 0.125775992870331
+
 **Duration if var: 0.122102022171021**
 
+
 Test-Run 5:
+
 **Duration ifSome: 0.117992997169495**
+
 Duration if let: 0.121351957321167
+
 Duration if var: 0.124639987945557
+
 
 ## Installation
 
