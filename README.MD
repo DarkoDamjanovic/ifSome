@@ -61,6 +61,7 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 
 - only possible to use on one Optional, `if let` allows unwrapping multiple at a time
 - access to the unwrapped Optional over `$0` syntax
+- not possible to unwrap the Optional as mutable var (at least I didn't found out how to do it)
 
 ## Benchmarks
 
