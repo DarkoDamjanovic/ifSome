@@ -11,7 +11,10 @@
         print(reversed)
     }
 
-If the String is `nil` the closure will not be called.
+If the String is `nil` the closure will not be called and the Optional will be automatically unwrapped inside the closure. Alternatively also this syntax is possible: 
+
+    let optional: Int? = 5
+    optional.ifSome{ unwrapped in print(unwrapped) }
 
 Another use case is in conjunction with flatMap:
 
@@ -52,56 +55,45 @@ Additionally, just for the sake of completness also an `ifNone` method is includ
     
 The trailing `ifNone` closure is only called if the value is `nil`.
 
+## Disadvantages of ifSome
+
+- only possible to use on one Optional, `if let` allows unwrapping multiple at a time
+- Access to the unwrapped optional over `$0` syntax.
+
 ## Benchmarks
 
 `ifSome` is benchmarked against `if let` and `if var`. Most of the time it is slightly faster then both. (see Benchmark.swift)
 
-Test-Run 1:
+| Test Run      | `ifSome`      | `if let`     | `if var`      |
+| ------------- | ------------- | ------------ | ------------- |
+| 1             | **0.121964991092682**|0.131994009017944|0.140098989009857    |
+| 2             | **0.119361042976379**|0.129860997200012|0.119897961616516    |
+| 3             | **0.120971977710724**|0.127260982990265|0.124355018138885    |
+| 4             | 0.125229001045227    |0.125775992870331|**0.122102022171021**|
+| 5             | **0.117992997169495**|0.121351957321167|0.124639987945557    |
 
-**Duration ifSome: 0.121964991092682**
-
-Duration if let: 0.131994009017944
-
-Duration if var: 0.140098989009857
-
-
-Test-Run 2:
-
-**Duration ifSome: 0.119361042976379**
-
-Duration if let: 0.129860997200012
-
-Duration if var: 0.119897961616516
-
-
-Test-Run 3:
-
-**Duration ifSome: 0.120971977710724**
-
-Duration if let: 0.127260982990265
-
-Duration if var: 0.124355018138885
-
-
-Test-Run 4:
-
-Duration ifSome: 0.125229001045227
-
-Duration if let: 0.125775992870331
-
-**Duration if var: 0.122102022171021**
-
-
-Test-Run 5:
-
-**Duration ifSome: 0.117992997169495**
-
-Duration if let: 0.121351957321167
-
-Duration if var: 0.124639987945557
-
+(times in seconds, smaller is better)
 
 ## Installation
 
 `ifSome` is an extension of the Swift `Optional` enum. Just add the file "Optional+ifSome.swift" to your project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
