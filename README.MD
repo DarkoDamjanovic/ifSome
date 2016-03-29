@@ -23,7 +23,7 @@ Another use case is in conjunction with flatMap:
     let number: Int? = 5
     number.flatMap({ Double($0) }).ifSome{ print($0) }
 
-Most of the time `if let` (or `guard`) is used in Swift to check for `nil`, which is not always the best solution. `if let` and `if var` create one additional constant or variable which costs performance. `ifSome` does not create them so most of the time it is (slightly) faster then `if let` and `if var`. (see Benchmarks below)
+Most of the time `if let` (or `guard`) is used in Swift to check for `nil`, which is not always the best solution. `if let` creates one additional constant which costs performance. `ifSome` does not create it so most of the time it is (slightly) faster then `if let`. (see Benchmarks below)
 
 Another solution is:
 
@@ -64,15 +64,15 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 
 ## Benchmarks
 
-`ifSome` is benchmarked against `if let` and `if var`. Most of the time it is slightly faster then both. (see Benchmark.swift)
+`ifSome` is benchmarked against `if let`. Most of the time it is slightly faster. (see Benchmark.swift)
 
-| Test Run      | `ifSome`      | `if let`     | `if var`      |
-| ------------- | ------------- | ------------ | ------------- |
-| 1             | **0.121964991092682**|0.131994009017944|0.140098989009857    |
-| 2             | **0.119361042976379**|0.129860997200012|0.119897961616516    |
-| 3             | **0.120971977710724**|0.127260982990265|0.124355018138885    |
-| 4             | 0.125229001045227    |0.125775992870331|**0.122102022171021**|
-| 5             | **0.117992997169495**|0.121351957321167|0.124639987945557    |
+| Test Run      | `ifSome`      | `if let`     |
+| ------------- | ------------- | ------------ |
+| 1             | **0.121964991092682**|0.131994009017944|
+| 2             | **0.119361042976379**|0.129860997200012|
+| 3             | **0.120971977710724**|0.127260982990265|
+| 4             | 0.125229001045227    |**0.125775992870331**|
+| 5             | **0.117992997169495**|0.121351957321167|
 
 (times in seconds, smaller is better)
 

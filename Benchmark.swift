@@ -52,18 +52,6 @@ end = NSDate()
 interval = end.timeIntervalSinceDate(start)
 print("Duration if let: \(interval)")
 
-sum = 0
-start = NSDate()
-
-for i in array {
-    if var i = i {
-        sum = sum + i
-    }
-}
-
-end = NSDate()
-interval = end.timeIntervalSinceDate(start)
-print("Duration if var: \(interval)")
 
 
 
