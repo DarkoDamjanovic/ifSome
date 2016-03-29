@@ -8,10 +8,12 @@
      
     text.ifSome {
         let reversed = String($0.characters.reverse())
-        print(reversed)
+        print(reversed) // "Some text"
     }
 
-If the String is not `nil` the closure will be called and the Optional will be automatically unwrapped inside the closure. Alternatively also this syntax is possible: 
+If the String is not `nil` the closure will be called and the Optional will be automatically unwrapped inside the closure. `ifSome` is not intended as an replacement for `if let` but an alternative in some cases.
+
+Alternatively also this syntax is possible: 
 
     let optional: Int? = 5
     optional.ifSome{ unwrapped in print(unwrapped) }
