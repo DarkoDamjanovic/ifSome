@@ -4,14 +4,14 @@
 
     let text: String? = "txet emoS"  
     
-    text.ifSome{ print($0) } // clean and intuitive
+    text.ifSome{ print($0) } 
      
     text.ifSome {
         let reversed = String($0.characters.reverse())
         print(reversed)
     }
 
-If the String is `nil` the closure will not be called and the Optional will be automatically unwrapped inside the closure. Alternatively also this syntax is possible: 
+If the String is not `nil` the closure will be called and the Optional will be automatically unwrapped inside the closure. Alternatively also this syntax is possible: 
 
     let optional: Int? = 5
     optional.ifSome{ unwrapped in print(unwrapped) }
@@ -36,7 +36,7 @@ Another way to check for `nil` is optional chaining:
     let text: String? = "Some text"
     text?.removeAll()
     
-But this only allows calling functionality _on_ the object, it is not possible to _use_ the object like with `if let` or `ifSome`.    
+But optional chaining only allows calling functionality _on_ the object, it is not possible to _use_ the object like with `if let` or `ifSome`.    
     
 ### Comparison with map    
     
@@ -48,7 +48,7 @@ ifSome is similar but different to `map` on the Swift `Optional` enum:
 
 ## ifNone
 
-Additionally, just for the sake of completness also an `ifNone` method is included.
+Just for the sake of completness also an `ifNone` method is included.
 
     let someText: String? = nil
     someText.ifNone { print("someText is really nil") }
@@ -58,7 +58,7 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 ## Disadvantages of ifSome
 
 - only possible to use on one Optional, `if let` allows unwrapping multiple at a time
-- Access to the unwrapped optional over `$0` syntax.
+- access to the unwrapped Optional over `$0` syntax
 
 ## Benchmarks
 
