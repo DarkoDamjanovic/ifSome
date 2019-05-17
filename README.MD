@@ -18,11 +18,6 @@ Alternatively also this syntax is possible:
     let optional: Int? = 5
     optional.ifSome{ unwrapped in print(unwrapped) }
 
-Another use case is in conjunction with flatMap:
-
-    let number: Int? = 5
-    number.flatMap({ Double($0) }).ifSome{ print($0) }
-
 Most of the time `if let` (or `guard`) is used in Swift to check for `nil`, which is not always the best solution. `if let` creates one additional constant which costs performance. `ifSome` does not create it so most of the time it is (slightly) faster then `if let`. (see Benchmarks below)
 
 Another solution is:
