@@ -26,7 +26,9 @@ Another solution is:
         print(text!) // forced unwrapping needed
     }
 
-But this needs forced unwrapping, which generally should be avoided if possible.  
+But this needs forced unwrapping, which generally should be avoided if possible. Better would be:
+
+    text.ifSome{ print($0) }
     
 Another way to check for `nil` is optional chaining:
 
