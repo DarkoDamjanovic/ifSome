@@ -58,20 +58,6 @@ The trailing `ifNone` closure is only called if the value is `nil`.
 - access to the unwrapped Optional over `$0` syntax
 - not possible to unwrap the Optional as mutable var (at least I didn't found out how to do it)
 
-## Benchmarks
-
-`ifSome` is benchmarked against `if let`. Most of the time it is slightly faster. (see Benchmark.swift)
-
-| Test Run      | `ifSome`      | `if let`     |
-| ------------- | ------------- | ------------ |
-| 1             | **0.121964991092682**|0.131994009017944|
-| 2             | **0.119361042976379**|0.129860997200012|
-| 3             | **0.120971977710724**|0.127260982990265|
-| 4             | 0.125229001045227    |**0.125775992870331**|
-| 5             | **0.117992997169495**|0.121351957321167|
-
-(times in seconds, smaller is better)
-
 ## Installation
 
 `ifSome` is an extension of the Swift `Optional` enum. Just add the file "Optional+ifSome.swift" to your project.
