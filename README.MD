@@ -36,14 +36,6 @@ Another way to check for `nil` is optional chaining:
     text?.removeAll()
     
 But optional chaining only allows calling functionality _on_ the object, it is not possible to _use_ the object like with `if let` or `ifSome`.    
-    
-### Comparison with map    
-    
-ifSome is similar but different to `map` on the Swift `Optional` enum:
-
-- `map` returns a result. `ifSome` does not return anything, it just calls the closure if the Optional is not `nil`.
-- `map` is currently declared as `@warn_unused_result`. If the result of `map` is not used the warning `"Result of call to map is unused"` is issued by the compiler so `map` cannot be used as a clean replacement of `ifSome`.
-- `map` is not intended as a `nil` check. As the name suggests it should be used for mapping one type to another type.
 
 ## ifNone
 
