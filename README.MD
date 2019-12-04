@@ -11,6 +11,14 @@
         print(reversed) // "Some text"
     }
 
+It resembles also what meanwhile is available in Kotlin as the let syntax:
+    
+    private fun load() {
+        product.let {
+            viewModel.load(it)
+        }
+    }
+
 If the String is not `nil` the closure will be called and the Optional will be automatically unwrapped inside the closure. `ifSome` is not intended as an replacement for `if let` but an alternative in some cases.
 
 Alternatively also this syntax is possible: 
